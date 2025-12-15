@@ -1,8 +1,11 @@
-# Getecz Laravel Installer by Ajith Joseph
+# Getecz Laravel Installer
+
+[ezgif-8ef52ffdd521e359.gif](https://postimg.cc/7GCqCnLY)
 
 A lightweight installer wizard package for **Laravel 12** applications.
 
 ## Features
+
 - Laravel 12 compatible
 - Tailwind CDN installer UI (no build tools required)
 - Server requirements check
@@ -14,6 +17,7 @@ A lightweight installer wizard package for **Laravel 12** applications.
 - Locks installer after completion
 
 ## Requirements
+
 - PHP 8.1+
 - Laravel 12
 - MySQL 5.7+ / MariaDB
@@ -22,17 +26,20 @@ A lightweight installer wizard package for **Laravel 12** applications.
 ## Install
 
 ### 1) Require the package
+
 ```bash
 composer require getecz/laravel-installer
 ```
 
 ### 2) (Optional) Publish config / views
+
 ```bash
 php artisan vendor:publish --tag=installer-config
 php artisan vendor:publish --tag=installer-views
 ```
 
 ### 3) Enable automatic redirect to installer (Laravel 12)
+
 In **bootstrap/app.php** add the middleware to the `web` group:
 
 ```php
@@ -52,6 +59,7 @@ return Application::configure(basePath: dirname(__DIR__))
 > If you don't want auto-redirect, skip this step and manually visit `/install`.
 
 ## Usage
+
 1. Upload your Laravel project to your server.
 2. Visit your site in a browser.
 3. If the app is not installed, you will be redirected to `/install`.
@@ -60,20 +68,25 @@ return Application::configure(basePath: dirname(__DIR__))
    - `storage/installed`
 
 ## Configuration
+
 Publish config (optional) and edit `config/installer.php`.
 
 ### Change post-install redirect
+
 ```php
 'redirect_after_install' => '/login'
 ```
 
 ### Change user model
+
 ```php
 'user_model' => \App\Models\User::class
 ```
 
 ### Map admin fields
+
 If your users table has custom columns:
+
 ```php
 'admin_fields' => [
   'name' => 'full_name',
@@ -87,10 +100,12 @@ If your users table has custom columns:
 ```
 
 ## Security
+
 - Installer routes are blocked once the installed lock file exists.
 - Delete `storage/installed` to re-run the installer.
 
 ## Routes
+
 - `/install`
 - `/install/requirements`
 - `/install/database`
@@ -99,4 +114,5 @@ If your users table has custom columns:
 - `/install/finish`
 
 ## License
+
 MIT
