@@ -16,5 +16,13 @@ Route::middleware(['web', EnsureNotInstalled::class])->group(function () {
     Route::get('/install/admin', [InstallController::class, 'adminForm'])->name('installer.admin');
     Route::post('/install/admin', [InstallController::class, 'createAdmin'])->name('installer.admin.create');
 
-    Route::get('/install/finish', [InstallController::class, 'finish'])->name('installer.finish');
+   
 });
+
+Route::middleware('web')->group(function () {
+   Route::get('/install/finish', [InstallController::class, 'finish'])->name('installer.finish');
+
+   
+});
+
+ 
